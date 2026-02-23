@@ -34,7 +34,7 @@ def main():
     if 'page' not in st.session_state: 
         st.session_state.page = '대시보드'
 
-    st.sidebar.subheader("분석 리포트")
+    st.sidebar.subheader("메뉴")
 
     # 버튼형 메뉴
     if st.sidebar.button("🏠 대시보드", use_container_width=True): 
