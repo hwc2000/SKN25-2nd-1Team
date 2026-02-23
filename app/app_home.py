@@ -2,7 +2,7 @@ import streamlit as st
 
 def run_home():
     # 1. 헤더 섹션 (브랜드 아이덴티티)
-    st.title("🎧 KeepTune: 구독 이탈 방지 AI 솔루션")
+    st.title("🎧 KeepTune AI : 구독 이탈 방지 솔루션")
     st.markdown("#### **\"데이터로 유저의 리듬을 지키다 (Keep the Tune)\"**")
     st.write("---")
 

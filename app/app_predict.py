@@ -14,7 +14,7 @@ except ImportError:
     st.error("❌ model_loader.py를 찾을 수 없습니다. 경로를 확인해주세요.")
 
 def run_predict():
-    st.title("🔮 KeepTune: 이탈 방어 AI 시뮬레이터")
+    st.title("🔮 KeepTune AI : 이탈 방어 시뮬레이터")
     st.markdown("##### **XGBoost & ResNet 하이브리드 진단 리포트**")
     st.markdown("---")
 
@@ -24,19 +24,49 @@ def run_predict():
     if 'result_data' not in st.session_state:
         st.session_state.result_data = None
 
-    # 2. 시뮬레이션 대상 설정 (사용자 입력)
+    # 2. 시나리오 설정 섹션 (세밀한 슬라이더 모드)
     with st.container():
         st.subheader("👤 시뮬레이션 대상 설정")
+        
+        # 가로로 넓게 배치하여 슬라이더의 가동 범위를 넓힘 (세밀한 조절 유도)
         col1, col2 = st.columns(2)
+        
         with col1:
-            # [개선] 정기 결제 용어 직관화
+            # 💳 결제 설정
             auto_label = st.radio("💳 정기 결제(자동 갱신) 설정", ["활성 (구독 중)", "해지 (만료 예정)"], horizontal=True)
             auto_renew = 1.0 if "활성" in auto_label else 0.0
-            total_mins = st.number_input("🎧 일평균 노래 청취 시간 (분)", 0, 1440, 30)
+            
+            st.write("") # 간격 조절
+            # 🎧 청취 시간: step=1로 설정하여 1분 단위로 세밀하게 조절 가능
+            total_mins = st.slider(
+                "🎧 일평균 노래 청취 시간 (분)", 
+                min_value=0, 
+                max_value=720, 
+                value=30, 
+                step=1, 
+                help="좌우로 밀거나, 클릭 후 키보드 방향키를 사용하면 1분 단위로 조절됩니다."
+            )
             total_secs = float(total_mins * 60)
+            
         with col2:
-            cancel_rate = st.slider("⚠️ 과거 서비스 해지 시도 비율", 0.0, 1.0, 0.1)
-            txn_cnt = st.number_input("💰 누적 결제 횟수", 1, 100, 10)
+            # ⚠️ 해지 비율: step=0.01로 설정하여 1% 단위 정밀 조절
+            cancel_rate = st.slider(
+                "⚠️ 과거 서비스 해지 시도 비율", 
+                min_value=0.0, 
+                max_value=1.0, 
+                value=0.1, 
+                step=0.01
+            )
+            
+            st.write("") # 간격 조절
+            # 💰 결제 횟수: step=1로 설정
+            txn_cnt = st.slider(
+                "💰 누적 결제 횟수 (회)", 
+                min_value=1, 
+                max_value=100, 
+                value=10, 
+                step=1
+            )
 
     input_data = {
         'is_auto_renew': auto_renew,  # 변수명 통일
