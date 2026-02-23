@@ -137,7 +137,7 @@ python ml_pipeline/train.py
 ## 2️⃣ 대시보드 실행
 
 ```bash
-python app.py
+streamlit run app.py
 ```
 
 ---
