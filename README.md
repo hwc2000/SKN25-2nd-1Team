@@ -73,26 +73,22 @@ XGBoost와 ResNet 모델을 활용하여 이탈 예측을 수행하며, Streamli
 # 🛠 4. 기술 스택
 
 ### 📊 Data
-
-* Pandas
-* NumPy
-* PyArrow
+![Pandas](https://img.shields.io/badge/Pandas-2.3.3-blue)
+![NumPy](https://img.shields.io/badge/NumPy-2.4.2-lightblue)
+![PyArrow](https://img.shields.io/badge/PyArrow-23.0.1-green)
 
 ### 🤖 Modeling
-
-* XGBoost
-* ResNet
-* SHAP
+![XGBoost](https://img.shields.io/badge/XGBoost-3.2.0-orange)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.10.0-red)
+![SHAP](https://img.shields.io/badge/SHAP-0.50.0-purple)
 
 ### 📈 Dashboard
-
-* Streamlit
+![Streamlit](https://img.shields.io/badge/Streamlit-1.54.0-red)
 
 ### 🧠 ML Pipeline
-
-* sklearn
-* Imbalanced-learn (SMOTE)
-* Optuna
+![Scikit--learn](https://img.shields.io/badge/Scikit--learn-1.8.0-blue)
+![Imbalanced--learn](https://img.shields.io/badge/Imbalanced--learn-0.12.0-yellow)
+![Optuna](https://img.shields.io/badge/Optuna-4.7.0-green)
 
 ---
 
